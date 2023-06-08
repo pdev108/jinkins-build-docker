@@ -9,7 +9,7 @@ node {
     }
     
     stage ('Run image') {
-        docker.image ('niama/nginx') .withRun('-p 80:80') { c->
+        docker.image ('niama/nginx') .withRun('-p 89:89') { c->
 
         sh 'docker ps'
         sh 'curl localhost'
