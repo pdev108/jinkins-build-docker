@@ -1,15 +1,15 @@
 node {
   def app
-    stage('Clone') {
+      stage ('Clone') {
          checkout scm
     }
     
-    stage('Build image') {
-         app = docker.build("niama/nginx")
+    stage ('Build image') {
+         app = docker.build ("niama/nginx")
     }
     
-    stage('Run image') {
-        docker.image('niama/nginx').withRun('-p 80:80') { c->
+    stage ('Run image') {
+        docker.image ('niama/nginx') .withRun('-p 80:80') { c->
 
         sh 'docker ps'
         sh 'curl localhost'
